@@ -6,7 +6,7 @@ const Home: React.FC = () => {
     <div
       className="h-screen w-screen bg-cover bg-center flex items-center justify-center"
       style={{
-        backgroundImage: "url('/arcade.jpg')", 
+        backgroundImage: "url('/assests/arcade.jpg')", 
       }}
     >
       <div className={`${styles.formContainer} ${styles.animateGlow}`}>
