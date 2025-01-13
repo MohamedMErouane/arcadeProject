@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Navbar from "../../components/navbar"; // Adjust the path if needed
+import Navbar from "../../components/navbar"; 
 import GameCard from "../../components/gamecard";
 
 const games = [

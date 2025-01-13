@@ -93,3 +93,23 @@
   transform: scale(1.05);
   box-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
 }
+/* Add to your existing styles in page.module.css */
+
+/* Arcade style font for X and O */
+.arcadeFont {
+  font-family: 'Press Start 2P', cursive; /* Use a pixelated arcade font */
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Red X */
+.text-red-500 {
+  color: #e60000; /* Arcade Red */
+  text-shadow: 0 0 5px #e60000, 0 0 10px #e60000, 0 0 15px #e60000; /* Neon effect */
+}
+
+/* Green O */
+.text-green-500 {
+  color: #00e600; /* Arcade Green */
+  text-shadow: 0 0 5px #00e600, 0 0 10px #00e600, 0 0 15px #00e600; /* Neon effect */
+}
