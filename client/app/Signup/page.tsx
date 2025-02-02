@@ -9,7 +9,12 @@ const Signup: React.FC = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
+    const response = await fetch("http://localhost:3001/auth/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
     event.preventDefault();
     if (!email.includes("@")) {
       setError("Please enter a valid email address!");
@@ -19,13 +24,16 @@ const Signup: React.FC = () => {
       setError("Passwords do not match!");
       return;
     }
-    alert("Signup successful!");
-    window.location.href = "/Home";
+    if (response.ok) {
+      setSuccess("Signup successful! You can now login.");
+      window.location.href = "/Home";
+    } else {
+      setError("Signup failed. Try again.");
+    }
+    
   };
 
-  const handleGoogleSignup = async () => {
-    await signIn("google", { callbackUrl: "/Home" });
-  };
+  
 
   return (
     <div
@@ -93,14 +101,7 @@ const Signup: React.FC = () => {
           </button>
         </form>
 
-        <div className="text-center mt-4">
-          <button
-            onClick={handleGoogleSignup}
-            className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-          >
-            Sign up with Google
-          </button>
-        </div>
+        
 
         <div className="text-center mt-4">
           <a href="/Login" className="text-blue-500 hover:underline">
@@ -113,3 +114,7 @@ const Signup: React.FC = () => {
 };
 
 export default Signup;
+function setSuccess(arg0: string) {
+  throw new Error("Function not implemented.");
+}
+
